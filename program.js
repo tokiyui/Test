@@ -336,7 +336,7 @@ function drawTable() {
                         var tddThresholds = thresholdColors[lev];
                         var backgroundColor_t = '';
                         for (var i = 0; i < tddThresholds.length; i++) {
-                                if (tValue >= tddThresholds[i]) {
+                                if (tValue < tddThresholds[i]) {
                                         backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
