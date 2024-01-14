@@ -76,3 +76,23 @@
 		}
 		</style>
 </head>
+<body>
+	<div id="header">
+		<h1 style="font-size: 120%;">GSM予報値時別表(更新時間：初期値+約6時間30分)　<span id="pointname">東京</span></h1>
+	</div>
+	<div style="margin-top: 10px;">
+		初期値：<input id="datetimepicker" type="text" size="16" style="font-size: 10.5pt">&nbsp;
+		地点選択：<select onchange="selectRegion(this.value)" id="selectRegion" style="font-size:10.5pt">
+			<option value="-1">全国主要地点</option>
+			<option value="0">北海道</option>
+			<option value="1">東北</option>
+			<option value="2">関東甲信</option>
+			<option value="3">東海北陸</option>
+			<option value="4">近畿</option>
+			<option value="5">中国・四国</option>
+			<option value="6">九州</option>
+			<option value="7">沖縄</option>
+		</select>
+		<select onchange="selectPref(this.value)" id="selectPref" style="font-size:10.5pt"><option value="999">全国主要地点</option></select>
+		<select onchange="update()" id="selectPoint" style="font-size:10.5pt"><option value="12442">旭川</option><option value="14163">札幌</option><option value="19432">釧路</option><option value="31312">青森</option><option value="32402">秋田</option><option value="33431">盛岡</option><option value="34392">仙台</option><option value="41277">宇都宮</option><option value="44132">東京</option><option value="48156">長野</option><option value="50331">静岡</option><option value="51106">名古屋</option><option value="54232">新潟</option><option value="56227">金沢</option><option value="62078">大阪</option><option value="66408">岡山</option><option value="67437">広島</option><option value="68132">松江</option><option value="72086">高松</option><option value="73166">松山</option><option value="82182">福岡</option><option value="88317">鹿児島</option><option value="91197">那覇</option></select>
+	</div>
