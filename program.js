@@ -234,7 +234,6 @@ function update() {
 function drawTable() {
 	$("#pointname").text($('#selectPoint option:selected').text());
 	var levs = [300, 500, 700, 850, 925];
-	var levttd = [300, 500, 700, 850];
 	var table = "<table>";
 	var time = $.exDate(fcst.info.ini, "yyyymmddhh24miss");
 	var ini_ms = time.getTime() + 9 * HOUR;
@@ -330,13 +329,13 @@ function drawTable() {
 			var tem = Number(fcst[ft][lev].TMP - 273.15).toFixed(1);
 			var tValue = parseFloat(tem);
 			var thresholdColors = {
-			    925: [27, 24, 21, 18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15, -18],
-			    850: [24, 21, 18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21],
-			    700: [18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21, -24, -27],
-			    500: [3, 0, -3, -6, -9, -12, -15, -18, -21, -24, -27, -30, -33, -36, -39, -42],
-			    300: [-18, -21, -24, -27, -30, -33, -36, -39, -42, -45, -48, -51, -54, -57, -60, -63],
+			    925: [24, 21, 18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15],
+			    850: [18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21],
+			    700: [9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21, -24, -27, -30],
+			    500: [-6, -9, -12, -15, -18, -21, -24, -27, -30, -33, -36, -39, -42, -45],
+			    300: [-21, -24, -27, -30, -33, -36, -39, -42, -45, -48, -51, -54, -57, -60],
                         };
-                        var tempcolors = ['#ff0000', '#ff4000', '#ff8000', '#ffc000', '#ffff00', '#c0ff00', '#80ff00', '#40ff00','#00ff00', '#00ff40', '#00ff80', '#00ffc0', '#00ffff', '#00c0ff', '#0080ff', '#0040ff', '#0000ff'];
+                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors[lev];
                         var backgroundColor_t = '';
                         for (var i = 0; i < tddThresholds.length; i++) {
