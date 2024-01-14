@@ -311,13 +311,10 @@ function drawTable() {
 			+ "<td class='td_rh'>" + rh + "</td>"
 			+ "<td class='td_prcp'>" + prcp + "</td>"
 			+ "<td class='td_cc'>" + cc + "</td>";
-		levs.forEach(function (lev) {
-		        
-		        var z = Number(fcst[ft][lev].HGT).toFixed();
+		levs.forEach(function (lev) {  
 			var wd = wdn[String(Math.round((Math.atan2(fcst[ft][lev].VGRD, fcst[ft][lev].UGRD) / (Math.PI / 8.0))))];
 			var ws = Number(Math.sqrt(fcst[ft][lev].UGRD * fcst[ft][lev].UGRD + fcst[ft][lev].VGRD * fcst[ft][lev].VGRD)).toFixed(1);			
 			var rh = Number(fcst[ft][lev].RH).toFixed();			
-			var ept = calc_ept(fcst[ft][lev], lev).toFixed();
 			var vvel = Number(fcst[ft][lev].VVEL * 3600 / 100).toFixed();
 	        });        
 		levs.forEach(function (lev) {
@@ -329,11 +326,11 @@ function drawTable() {
 			var tem = Number(fcst[ft][lev].TMP - 273.15).toFixed(1);
 			var tValue = parseFloat(tem);
 			var thresholdColors = {
-			    925: [24, 21, 18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15],
-			    850: [18, 15, 12, 9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21],
-			    700: [9, 6, 3, 0, -3, -6, -9, -12, -15, -18, -21, -24, -27, -30],
-			    500: [-6, -9, -12, -15, -18, -21, -24, -27, -30, -33, -36, -39, -42, -45],
-			    300: [-21, -24, -27, -30, -33, -36, -39, -42, -45, -48, -51, -54, -57, -60],
+			    925: [-15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18, 21, 24],
+			    850: [-21, -18, -15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18],
+			    700: [-30, -27, -24, -21, -18, -15, -12, -9, -6, -3, 0, 3, 6, 9],
+			    500: [-45, -42, -39, -36, -33, -30, -27, -24, -21, -18, -15, -12, -9, -6],
+			    300: [-60, -57, -54, -51, -48, -45, -42, -39, -36, -33, -30, -27, -24, -21],
                         };
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors[lev];
@@ -367,7 +364,7 @@ function drawTable() {
                 if (ft % (ft >= 84 ? 6 : 3) != 0) {
 			table += Array(3 + 1).join("<td></td>");
 		} else {
-                        var tem = Number(fcst[ft][925].TMP - 273.15).toFixed(1);
+			var z = Number(fcst[ft][500].HGT).toFixed();
                         var ept = calc_ept(fcst[ft][850], 850).toFixed();
                         var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
 		        table += "<td class='td_t'>" + tem + "</td><td class='td_tdd'>" + ept + "</td><td class='td_tdd'>" + k + "</td>";
