@@ -190,9 +190,9 @@ function selectAmedas(region, pref, amedas) {
 	    }
 	});
         $('#selectPoint').children().remove();
-        Object.keys(points).forEach(function (a) {
-            $('#selectPoint').append('<option value="' + a + '">' + points[a] + '</option>');
-        });
+        # Object.keys(points).forEach(function (a) {
+        #     $('#selectPoint').append('<option value="' + a + '">' + points[a] + '</option>');
+        # });
         $('#selectPoint').val(amedas);
         update();
     });
