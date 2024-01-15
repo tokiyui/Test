@@ -367,7 +367,7 @@ function drawTable() {
 			var z = Number(fcst[ft][500].HGT).toFixed();
                         var ept = calc_ept(fcst[ft][850], 850).toFixed();
                         var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
-		        table += "<td class='td_t'>" + tem + "</td><td class='td_tdd'>" + ept + "</td><td class='td_tdd'>" + k + "</td>";
+		        table += "<td class='td_t'>" + z + "</td><td class='td_tdd'>" + ept + "</td><td class='td_tdd'>" + k + "</td>";
 		}		
 		table += "</tr>";
 
