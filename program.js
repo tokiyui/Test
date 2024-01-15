@@ -228,7 +228,12 @@ function update() {
             dataType: 'json'
         })
     ).done(function (gsmgpvData, gsmgpvExData) {
-        fcst = Object.assign({}, gsmgpvData[0], gsmgpvExData[0]);
+        fcst = { ...gsmgpvData[0] };
+	Object.keys(gsmgpvExData[0]).forEach(function (key) {
+	    if (!fcst.hasOwnProperty(key)) {
+		fcst[key] = gsmgpvExData[0][key];
+	    }
+	});
         drawTable();
         $("#selectRegion").prop("disabled", false);
         $("#selectPref").prop("disabled", false);
@@ -323,7 +328,7 @@ function drawTable() {
 			var vvel = Number(fcst[ft][lev].VVEL * 3600 / 100).toFixed();
 	        });        
 		levs.forEach(function (lev) {
-			if (ft % (ft >= 84 ? 6 : 3) != 0) {
+			if (ft % (ft >= 132 ? 6 : 3) != 0) {
 				table += Array(1 + 1).join("<td></td>");
 				return;
 			}
@@ -366,7 +371,7 @@ function drawTable() {
                                 table += "<td class='td_tdd' style='background-color: " + backgroundColor_ttd + "'>" + tdd + "</td>";
                         }
                 }); 
-                if (ft % (ft >= 84 ? 6 : 3) != 0) {
+                if (ft % (ft >= 132 ? 6 : 3) != 0) {
 			table += Array(3 + 1).join("<td></td>");
 		} else {
 			var z = Number(fcst[ft][500].HGT).toFixed();
