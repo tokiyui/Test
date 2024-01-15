@@ -4,7 +4,7 @@ var dat = {};
 var points;
 var ini;
 var current_ini;
-var current_amedas;
+var current_amedas;https://github.com/tokiyui/Test/blob/main/program.js
 var amedas;
 var pref;
 var region;
@@ -183,7 +183,12 @@ function selectAmedas(region, pref, amedas) {
             dataType: 'json'
         })
     ).done(function (gsmgpvData, gsmgpvExData) {
-        points = Object.assign({}, gsmgpvData[0], gsmgpvExData[0]);
+        points = { ...gsmgpvData[0] };
+	Object.keys(gsmgpvExData[0]).forEach(function (key) {
+	    if (!points.hasOwnProperty(key)) {
+		points[key] = gsmgpvExData[0][key];
+	    }
+	});
         $('#selectPoint').children().remove();
         Object.keys(points).forEach(function (a) {
             $('#selectPoint').append('<option value="' + a + '">' + points[a] + '</option>');
@@ -345,7 +350,7 @@ function drawTable() {
                 }); 
 		levs.forEach(function (lev) {
 		        if(lev == 300 || lev == 500 || lev == 700 || lev == 850) { 
-			        if (ft % (ft >= 84 ? 6 : 3) != 0) {
+			        if (ft % (ft >= 132 ? 6 : 3) != 0) {
 				        table += Array(1 + 1).join("<td></td>");
 				        return;
 			        }
