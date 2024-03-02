@@ -409,7 +409,6 @@ function drawTable() {
                         var kValue = parseFloat(k);
 			var thresholdColors = [0,1,2,34,5,6,7,8,9,10,11,12,13]
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
-                        var tddThresholds = thresholdColors[lev];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (k < thresholdColors[i]) {
                                         backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
