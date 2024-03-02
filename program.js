@@ -387,10 +387,9 @@ function drawTable() {
                         var eptValue = parseFloat(ept);
 			var thresholdColors = [282, 285, 288, 291, 294, 297, 300, 303, 306, 309, 312, 315, 318, 321]
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
-                        var tddThresholds = thresholdColors[lev];
-                        var backgroundColor_t = '';
-                        for (var i = 0; i < tddThresholds.length; i++) {
-                                if (tValue < tddThresholds[i]) {
+                        var tddThresholds = thresholdColors;
+                        for (var i = 0; i < thresholdColors.length; i++) {
+                                if (tValue < thresholdColors[i]) {
                                         backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
@@ -401,9 +400,8 @@ function drawTable() {
 			var thresholdColors = [0,1,2,34,5,6,7,8,9,10,11,12,13]
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors[lev];
-                        var backgroundColor_k = '';
-                        for (var i = 0; i < tddThresholds.length; i++) {
-                                if (tValue < tddThresholds[i]) {
+                        for (var i = 0; i < thresholdColors.length; i++) {
+                                if (tValue < thresholdColors[i]) {
                                         backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
