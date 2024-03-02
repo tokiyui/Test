@@ -335,7 +335,7 @@ function drawTable() {
 			//Z500塗り分け
 			var z = Number(fcst[ft][500].HGT).toFixed();
                         var zValue = parseFloat(z);
-			var thresholdColors = [0,5100,5190,5280,5370,5460,5550,5640,5700,5760,5820,5880,5940]
+			var thresholdColors = [5100,5190,5280,5370,5460,5550,5640,5700,5760,5820,5880,5940,12000]
                         var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (zValue < thresholdColors[i]) {
@@ -354,11 +354,11 @@ function drawTable() {
 			var tem = Number(fcst[ft][lev].TMP - 273.15).toFixed(1);
 			var tValue = parseFloat(tem);
 			var thresholdColors = {
-			    925: [-273, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18, 21, 24],
-			    850: [-273, -15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18],
-			    700: [-273, -24, -21, -18, -15, -12, -9, -6, -3, 0, 3, 6, 9],
-			    500: [-273, -39, -36, -33, -30, -27, -24, -21, -18, -15, -12, -9, -6],
-			    300: [-273, -54, -51, -48, -45, -42, -39, -36, -33, -30, -27, -24, -21],
+			    925: [-9, -6, -3, 0, 3, 6, 9, 12, 15, 18, 21, 24, 300],
+			    850: [-15, -12, -9, -6, -3, 0, 3, 6, 9, 12, 15, 18, 300],
+			    700: [-24, -21, -18, -15, -12, -9, -6, -3, 0, 3, 6, 9, 300],
+			    500: [-39, -36, -33, -30, -27, -24, -21, -18, -15, -12, -9, -6, 300],
+			    300: [-54, -51, -48, -45, -42, -39, -36, -33, -30, -27, -24, -21, 300],
                         };
                         var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors[lev];
@@ -395,7 +395,7 @@ function drawTable() {
 			//thetaE塗り分け
 			var ept = calc_ept(fcst[ft][850], 850).toFixed();
                         var eptValue = parseFloat(ept);
-			var thresholdColors = [0, 273, 282, 291, 300, 309, 318, 327, 336, 345, 354, 363, 372]
+			var thresholdColors = [273, 282, 291, 300, 309, 318, 327, 336, 345, 354, 363, 372, 900]
                         var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (eptValue < thresholdColors[i]) {
@@ -406,7 +406,7 @@ function drawTable() {
 			//Kindex塗り分け
 			var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
                         var kValue = parseFloat(k);
-			var thresholdColors = [-100,0,1,2,3,4,5,6,7,8,9,10,11]
+			var thresholdColors = [0,1,2,3,4,5,6,7,8,9,10,11,100]
                         var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (k < thresholdColors[i]) {
