@@ -343,6 +343,7 @@ function drawTable() {
                                         backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
+			}
 		        table += "<td class='td_t'>" + z + "</td>";
 		}	
 		levs.forEach(function (lev) {
