@@ -408,7 +408,7 @@ function drawTable() {
                                         break;
                                 }
                         }
-		        table += <td class='td_ept' style='background-color: " + backgroundColor_t + "'>" + ept + "</td><td class='td_k' style='background-color: " + backgroundColor_k + "'>" + k + "</td>";
+		        table += "<td class='td_ept' style='background-color: " + backgroundColor_t + "'>" + ept + "</td><td class='td_k' style='background-color: " + backgroundColor_k + "'>" + k + "</td>";
 		}		
 		table += "</tr>";
 	}
