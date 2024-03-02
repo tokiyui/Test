@@ -254,9 +254,10 @@ function drawTable() {
 	table += "<thead class='scrollHead'><tr class='htop'><th rowspan='2' class='td_datetime'>日時</th>";
 	table += "<th colspan='6'>地上</th>";
 	cols = 0;
+	table += "<th>高度</th>";
 	table += "<th colspan='5' class='td_t'>気温</th>";
         table += "<th colspan='4' class='td_t'>湿数</th>"; 
-	table += "<th colspan='3'>その他</th>";
+	table += "<th colspan='2'>その他</th>";
 	table += "</tr>";
 	table += "<tr class='htop'>"
 		+ "<th class='td_wd'>風向</th>"
@@ -265,6 +266,7 @@ function drawTable() {
 		+ "<th class='td_rh'>湿度(%)</th>"
 		+ "<th class='td_prcp'>降水(mm/3h)</th>"
 		+ "<th class='td_cc'>雲量</th>";
+	table += "<th class='td_ept'>Z500</th>"
 	levs.forEach(function (lev) {
                 table += "<th>" + lev + "hPa</th>";
 		cols += 1;
@@ -275,7 +277,7 @@ function drawTable() {
 		        cols += 1;
 		}	
 	});
-	table += "<th class='td_ept'>Z500</th><th class='td_ept'>EPT850</th><th class='td_k'>K-index</th>"
+	table += "<th class='td_ept'>EPT850</th><th class='td_k'>K-index</th>"
 	table += "</tr>"
 	/* table += "<tr class='htop'>"
 		+ "<th class='td_wd'></th>"
