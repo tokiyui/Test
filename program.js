@@ -382,12 +382,35 @@ function drawTable() {
                 if (ft % (ft >= 132 ? 6 : 3) != 0) {
 			table += Array(2 + 1).join("<td></td>");
 		} else {
-                        var ept = calc_ept(fcst[ft][850], 850).toFixed();
-                        var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
-		        table += "<td class='td_tdd'>" + ept + "</td><td class='td_tdd'>" + k + "</td>";
+			//thetaE塗り分け
+			var ept = calc_ept(fcst[ft][850], 850).toFixed();
+                        var eptValue = parseFloat(ept);
+			var thresholdColors = [282, 285, 288, 291, 294, 297, 300, 303, 306, 309, 312, 315, 318, 321]
+                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
+                        var tddThresholds = thresholdColors[lev];
+                        var backgroundColor_t = '';
+                        for (var i = 0; i < tddThresholds.length; i++) {
+                                if (tValue < tddThresholds[i]) {
+                                        backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
+                                        break;
+                                }
+                        }
+			//Kindex塗り分け
+			var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
+                        var kValue = parseFloat(k);
+			var thresholdColors = [0,1,2,34,5,6,7,8,9,10,11,12,13]
+                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
+                        var tddThresholds = thresholdColors[lev];
+                        var backgroundColor_k = '';
+                        for (var i = 0; i < tddThresholds.length; i++) {
+                                if (tValue < tddThresholds[i]) {
+                                        backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
+                                        break;
+                                }
+                        }
+		        table += <td class='td_ept' style='background-color: " + backgroundColor_t + "'>" + ept + "</td><td class='td_k' style='background-color: " + backgroundColor_k + "'>" + k + "</td>";
 		}		
 		table += "</tr>";
-
 	}
 	table += "</tbody></table>";
 	$("#contents").html(table);
