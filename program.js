@@ -389,7 +389,7 @@ function drawTable() {
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors;
                         for (var i = 0; i < thresholdColors.length; i++) {
-                                if (tValue < thresholdColors[i]) {
+                                if (eptValue < thresholdColors[i]) {
                                         backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
@@ -401,7 +401,7 @@ function drawTable() {
                         var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         var tddThresholds = thresholdColors[lev];
                         for (var i = 0; i < thresholdColors.length; i++) {
-                                if (tValue < thresholdColors[i]) {
+                                if (k < thresholdColors[i]) {
                                         backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
                                         break;
                                 }
