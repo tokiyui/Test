@@ -407,7 +407,7 @@ function drawTable() {
 			var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
                         var kValue = parseFloat(k);
 			var thresholdColors = [15, 30, 40, 100]
-                        var tempcolors = ['#ffffff', '#ffff00', '#ff8000', '#ff0000' '#ff00ff'];
+                        var tempcolors = ['#ffffff', '#ffff00', '#ff8000', '#ff0000', '#ff00ff'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (k < thresholdColors[i]) {
                                         backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
