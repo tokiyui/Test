@@ -335,8 +335,8 @@ function drawTable() {
 			//Z500塗り分け
 			var z = Number(fcst[ft][500].HGT).toFixed();
                         var zValue = parseFloat(z);
-			var thresholdColors = [5160,5220,5280,5340,5400,5460,5520,5580,5640,5700,5760,5820,5880]
-                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
+			var thresholdColors = [5100,5190,5280,5370,5460,5550,5640,5700,5760,5820,5880,5940]
+                        var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (zValue < thresholdColors[i]) {
                                         backgroundColor_z = i < tempcolors.length ? tempcolors[i] : '';
@@ -395,8 +395,8 @@ function drawTable() {
 			//thetaE塗り分け
 			var ept = calc_ept(fcst[ft][850], 850).toFixed();
                         var eptValue = parseFloat(ept);
-			var thresholdColors = [282, 285, 288, 291, 294, 297, 300, 303, 306, 309, 312, 315, 318, 321]
-                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
+			var thresholdColors = [264, 273, 282, 291, 300, 309, 318, 327, 336, 345, 354, 363, 372]
+                        var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (eptValue < thresholdColors[i]) {
                                         backgroundColor_t = i < tempcolors.length ? tempcolors[i] : '';
@@ -406,8 +406,8 @@ function drawTable() {
 			//Kindex塗り分け
 			var k = calc_kindex(Number(fcst[ft][850].TMP - 273.15), Number(fcst[ft][500].TMP - 273.15), calc_tdd(fcst[ft][850]).toFixed(1), calc_tdd(fcst[ft][700]).toFixed(1)).toFixed(1);
                         var kValue = parseFloat(k);
-			var thresholdColors = [-100,0,1,2,3,4,5,6,7,8,9,10,11,12]
-                        var tempcolors = ['#000000;', '#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
+			var thresholdColors = [0,1,2,3,4,5,6,7,8,9,10,11,12]
+                        var tempcolors = ['#a0a0a0', '#ffffff', '#00ffff', '#00b0ff', '#0070ff', '#008000', '#00c000', '#00ff00', '#ffff00', '#ffc000', '#ff8000', '#ff0000', '#ff00ff', '#800080'];
                         for (var i = 0; i < thresholdColors.length; i++) {
                                 if (k < thresholdColors[i]) {
                                         backgroundColor_k = i < tempcolors.length ? tempcolors[i] : '';
